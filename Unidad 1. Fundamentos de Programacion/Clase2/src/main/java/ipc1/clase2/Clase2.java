@@ -90,6 +90,7 @@ public class Clase2 {
     }
 
     public static void main(String[] args) {
+        // App para registrar mascotas y mostrarlas por ordenadas por edad.
         menuPrencipal();
     }
 }
