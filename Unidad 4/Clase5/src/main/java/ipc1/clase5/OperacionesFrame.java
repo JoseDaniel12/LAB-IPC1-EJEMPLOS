@@ -5,6 +5,7 @@
 package ipc1.clase5;
 
 import static java.lang.Integer.parseInt;
+import java.util.LinkedList;
 
 /**
  *
@@ -185,8 +186,17 @@ public class OperacionesFrame extends javax.swing.JFrame {
             case "*" -> resultado = num1 * num2;
             case "/" -> resultado = num1 / num2;
         } 
-        String cadenaOperacion = String.valueOf(num1) + " " + simboloOperacion + " " + String.valueOf(num2);
-        AppState.operaciones.add(cadenaOperacion);
+        
+        //String cadenaOperacion = String.valueOf(num1) + " " + simboloOperacion + " " + String.valueOf(num2);
+        //AppState.operaciones.add(cadenaOperacion);
+        
+        LinkedList<String> operacion = new LinkedList<>();
+        operacion.add(Integer.toString(num1));
+        operacion.add(simboloOperacion);
+        operacion.add(Integer.toString(num2));
+        operacion.add(Integer.toString(resultado));
+        AppState.operaciones.add(operacion);
+                
         resultadoTextField.setText(String.valueOf(resultado));
     }//GEN-LAST:event_calcularButtonActionPerformed
 

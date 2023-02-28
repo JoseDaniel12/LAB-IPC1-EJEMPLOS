@@ -4,6 +4,8 @@
  */
 package ipc1.clase5;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author josed
@@ -15,6 +17,18 @@ public class ResultadosFrame extends javax.swing.JFrame {
      */
     public ResultadosFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Historial");
+        
+        
+        // Decirle a la tabla que agregue las filas que tengo el AppState
+        DefaultTableModel model = (DefaultTableModel)resultadosTable.getModel();
+        for (int i = 0; i < AppState.operaciones.size(); i++) {
+            Object[] fila = AppState.operaciones.get(i).toArray();
+            model.addRow(fila);
+        }
+        resultadosTable.setModel(model);
     }
 
     /**
@@ -26,15 +40,26 @@ public class ResultadosFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        resultadosTextField = new javax.swing.JLabel();
-        resultadosButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultadosTable = new javax.swing.JTable();
+        regresarButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        resultadosButton.setText("Mostrar Resultados");
-        resultadosButton.addActionListener(new java.awt.event.ActionListener() {
+        resultadosTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Numero1", "Operador", "Numero2", "Resultado"
+            }
+        ));
+        jScrollPane1.setViewportView(resultadosTable);
+
+        regresarButton.setText("Regresar");
+        regresarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resultadosButtonActionPerformed(evt);
+                regresarButtonActionPerformed(evt);
             }
         });
 
@@ -43,31 +68,30 @@ public class ResultadosFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(resultadosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(resultadosButton)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addComponent(regresarButton)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(resultadosButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resultadosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(regresarButton)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void resultadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadosButtonActionPerformed
-        resultadosTextField.setText(AppState.operaciones.get(0));
-    }//GEN-LAST:event_resultadosButtonActionPerformed
+    private void regresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarButtonActionPerformed
+        OperacionesFrame opsFrame = new OperacionesFrame();
+        opsFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_regresarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,7 +129,8 @@ public class ResultadosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton resultadosButton;
-    private javax.swing.JLabel resultadosTextField;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton regresarButton;
+    private javax.swing.JTable resultadosTable;
     // End of variables declaration//GEN-END:variables
 }
