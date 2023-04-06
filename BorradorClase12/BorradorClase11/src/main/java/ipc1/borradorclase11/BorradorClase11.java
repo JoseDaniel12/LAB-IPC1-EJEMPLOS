@@ -21,16 +21,13 @@ public class BorradorClase11 {
     public static void main(String[] args) {
         convertirBlancoNegro("./nintendo.jpg");
         
-        ListaSimple listaSimple = new ListaSimple();
         Usuario jose = new Usuario("Jose");
         Usuario daniel = new Usuario("daniel");
-        Usuario alvarado = new Usuario("alvarado");
+        ListaSimple listaSimple = new ListaSimple();
         listaSimple.add(jose);
         listaSimple.add(daniel);
-        listaSimple.add(alvarado);
-        listaSimple.listarNombres();
-        listaSimple.delete("daniel");
-        listaSimple.listarNombres();
-        System.out.println("Size: " + listaSimple.getSize());
+        System.out.println(listaSimple.getSize());
+        System.out.println(((Usuario)listaSimple.get(0)).nombre);
+        System.out.println(((Usuario)listaSimple.get(1)).nombre);
     }
 }
