@@ -1,0 +1,18 @@
+[tool.pdm]
+
+[tool.pdm.scripts]
+start = "python src/app.py"
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "JoseDaniel12", email = "josedaniel.alvaradof@gmail.com"},
+]
+dependencies = [
+    "flask>=2.2.3",
+    "flask-cors>=3.0.10",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}

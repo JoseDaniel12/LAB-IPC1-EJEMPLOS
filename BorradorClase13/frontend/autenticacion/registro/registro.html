@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro</title>
+        <link rel="stylesheet" href="./registro.css" type="text/css">
+    </head>
+    <body>
+        <form id="form" method="POST" onsubmit="registrarse(event)">
+            <h1>Registro</h1>
+            <div class="form-field">
+                <label>Nombre: </label>
+                <input name="nombre" type="text" placeholder="nombre">
+            </div>
+            <div class="form-field">
+                <label>Apellido: </label>
+                <input name="apellido" type="text" placeholder="correo">
+            </div>
+            <div class="form-field">
+                <label>Fecha Nacimiento: </label>
+                <input name="fecha_nacimiento" type="date" placeholder="contraseña">
+            </div>
+            <div class="form-field">
+                <label>Sexo: </label>
+                <select name="sexo">
+                    <option vale="M">M</option>
+                    <option value="F">F</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Nombre de usuario: </label>
+                <input name="alias" type="text" placeholder="alias">
+            </div>
+            <div class="form-field">
+                <label>Contrasenia: </label>
+                <input name="contrasenia" type="text" placeholder="contraseña">
+            </div>
+            <div class="form-field">
+                <label>Telefono: </label>
+                <input name="telefono" type="text" placeholder="telefono">
+            </div>
+            <button type="submit" class="ingresoButton">Registrarse</button>
+            <a href="../login/login.html">Login</a>
+        </form>
+        <script src="./registro.js"></script>
+    </body>
+</html>

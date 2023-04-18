@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="./login.css" type="text/css">
+    </head>
+    <body>
+        <form id="form" method="POST" onsubmit="login(event)">
+            <h1>Login</h1>
+            <div class="form-field">
+                <label>Nombre: </label>
+                <input name="nombre" type="text" placeholder="nombre">
+            </div>
+            <div class="form-field">
+                <label>Contraseña: </label>
+                <input name="contrasenia" type="text" placeholder="contraseña">
+            </div>
+            <button type="submit" class="ingresoButton">Ingresar</button>
+            <a href="../registro/registro.html">Registrarse</a>
+        </form>
+        <script src="./login.js"></script>
+    </body>
+</html>

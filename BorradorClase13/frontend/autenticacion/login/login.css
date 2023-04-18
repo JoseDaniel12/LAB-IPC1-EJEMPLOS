@@ -1,0 +1,46 @@
+body {
+    background-color: whitesmoke;
+}
+
+form {
+    background-color: yellow;
+    width: 400px;
+    height: 400px;
+
+    position: absolute;
+    margin: 0 auto;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 8px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+input {
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    width: 100%;
+    height: 30px;
+}
+
+.ingresoButton {
+    width: 40%;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+}

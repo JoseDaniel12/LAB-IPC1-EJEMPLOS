@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/autenticacion/login.css')}}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+  <form id="form" method="POST" action="{{url_for('autenticacion_bp.login')}}">
+    <h1>Login</h1>
+    <div class="form-field">
+      <label>Nombre: </label>
+      <input name="nombre" type="text" placeholder="nombre" />
+    </div>
+    <div class="form-field">
+      <label>Contraseña: </label>
+      <input name="contrasenia" type="text" placeholder="contraseña" />
+    </div>
+    <button type="submit" class="ingresoButton">Ingresar</button>
+    <a href="{{url_for('autenticacion_bp.registro')}}">Registrarse</a>
+  </form>
+{% endblock %}

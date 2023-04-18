@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+  {% with usuario=usuario %}
+    {% include 'layout/navbar.html' %}
+  {% endwith %}
+  {% block menu_content %} {% endblock %}
+{% endblock %}
+
+
