@@ -1,0 +1,25 @@
+{% extends "/layout/menu.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tareas/crear_tabla.css')}}" type="text/css" />
+{% endblock %}
+
+{% block menu_content %}
+    <div class="contenedor">
+        <h1>Ingrese una tarea:</h1>
+        <form method="POST"  action="{{ url_for('tareas_bp.agregar_tarea') }}">
+            <input type="text" name="tarea"></input>
+            <button type="submit"> Agregar Tarea </button>
+        </form>
+        <table>
+            {% for tarea in usuario['tareas'] %}
+                <tr>
+                    <td>{{tarea}}</td>
+                    <td>
+                        <button> Eliminar </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    <div>
+{% endblock %}

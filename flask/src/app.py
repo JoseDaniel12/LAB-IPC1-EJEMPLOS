@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_cors import CORS
 from blueprints.autenticacion import autenticacion_bp
+from blueprints.tareas import tareas_bp
 
 # Instancia de la aplicacón
 app = Flask(__name__, static_folder='static')
@@ -16,6 +17,7 @@ def index():
     return render_template('autenticacion/login.html')
 
 app.register_blueprint(autenticacion_bp)
+app.register_blueprint(tareas_bp)
 
 # Se coloca la apliacion en modo de escucha
 if __name__ == '__main__':
