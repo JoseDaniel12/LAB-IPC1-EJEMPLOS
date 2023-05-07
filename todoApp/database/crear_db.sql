@@ -1,0 +1,14 @@
+USE ipc1;
+
+CREATE TABLE IF NOT EXISTS tarea (
+	id_tarea INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	descripcion VARCHAR(250),
+	finalizada INT DEFAULT 0
+)
+
+DROP TABLE tarea;
+DELETE FROM tarea;
+SELECT * FROM tarea;
+
+
+SELECT * FROM tarea WHERE id_tarea = LAST_INSERT_ID();
