@@ -36,11 +36,23 @@ public class AppFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         lienzo1 = new ipc1.clase9.Lienzo();
+        lienzo2 = new ipc1.clase9.Lienzo();
         pausaButton = new javax.swing.JButton();
         inicioButton = new javax.swing.JButton();
         continuarButton = new javax.swing.JButton();
         temporizadorLabel = new javax.swing.JLabel();
         lienzoJPanel = new ipc1.clase9.Lienzo();
+
+        javax.swing.GroupLayout lienzo2Layout = new javax.swing.GroupLayout(lienzo2);
+        lienzo2.setLayout(lienzo2Layout);
+        lienzo2Layout.setHorizontalGroup(
+            lienzo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        lienzo2Layout.setVerticalGroup(
+            lienzo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,12 +138,12 @@ public class AppFrame extends javax.swing.JFrame {
 
     private void pausaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pausaButtonActionPerformed
         lienzoJPanel.pausa();
-        hiloTemporizador.suspend();
+        temporizador.pausa();
     }//GEN-LAST:event_pausaButtonActionPerformed
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
         lienzoJPanel.continuar();
-        hiloTemporizador.resume();
+        temporizador.continuar();
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     /**
@@ -173,6 +185,7 @@ public class AppFrame extends javax.swing.JFrame {
     private javax.swing.JButton continuarButton;
     private javax.swing.JButton inicioButton;
     private ipc1.clase9.Lienzo lienzo1;
+    private ipc1.clase9.Lienzo lienzo2;
     private ipc1.clase9.Lienzo lienzoJPanel;
     private javax.swing.JButton pausaButton;
     private javax.swing.JLabel temporizadorLabel;

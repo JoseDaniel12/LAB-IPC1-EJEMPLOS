@@ -2,6 +2,7 @@ package ipc1.clase9;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  *
@@ -12,6 +13,7 @@ public class Lienzo extends javax.swing.JPanel implements Runnable {
     Thread hilo;
     boolean primerEjecucion = true;
     boolean direccionDerecha = true;
+    AtomicBoolean isPaused = new AtomicBoolean(false);
     
     public Lienzo() {
         initComponents();
@@ -32,9 +34,11 @@ public class Lienzo extends javax.swing.JPanel implements Runnable {
     }
     
     @Override
-    public void run() {
+    public synchronized void run() {
         try {
             while (true) {
+                while (this.isPaused.get()) {
+                }
      
                 if (direccionDerecha && x >= getWidth() - 30 || !direccionDerecha && x <= 0) {
                     direccionDerecha = !direccionDerecha;
@@ -59,11 +63,11 @@ public class Lienzo extends javax.swing.JPanel implements Runnable {
     }
 
     public void pausa() {
-        hilo.suspend();
+        isPaused.set(true);
     }
 
     public void continuar() {
-        hilo.resume();
+        isPaused.set(false);
     }
     
 

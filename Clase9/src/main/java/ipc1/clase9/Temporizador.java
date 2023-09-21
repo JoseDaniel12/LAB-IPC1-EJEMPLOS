@@ -1,6 +1,7 @@
 package ipc1.clase9;
 
 import java.util.Observable;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -11,6 +12,7 @@ import javax.swing.JLabel;
  */
 public class Temporizador implements Runnable {
 
+    AtomicBoolean isPaused = new AtomicBoolean(false);
     private int horas, minutos, segundos;
     JLabel label;
     
@@ -28,6 +30,8 @@ public class Temporizador implements Runnable {
     @Override
     public void run() {
         while (true) {
+            while (this.isPaused.get()) {}
+            
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
@@ -48,5 +52,14 @@ public class Temporizador implements Runnable {
             label.setText(toString(horas) + ":" + toString(minutos)+ ":" + toString(segundos));
         }
     }
+    
+    public void pausa() {
+        isPaused.set(true);
+    }
+
+    public void continuar() {
+        isPaused.set(false);
+    }
 
 }
+ 
